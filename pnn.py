@@ -11,7 +11,19 @@ def Linear(
         batched: bool = True  
     ):
 
-    pass
+    if key is None:
+        key = jax.random.key(0)
+
+    weight_count: int = out_features # biases
+    weight_count += out_features * in_features # linear
+
+    weights = jax.random.normal(key, shape=(weight_count,)) * 0.1
+
+    if batched:
+        pass
+
+    else:
+        pass
 
 def MultiLinear(
         in_features: int,
